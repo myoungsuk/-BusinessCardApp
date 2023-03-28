@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services' //구글서비스 추가
 }
 
 android {
@@ -35,4 +36,28 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+
+    //logger
+    implementation 'com.orhanobut:logger:2.2.0'
+    //리사이클러뷰
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    //Glide 이미지 로드 라이브러리
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    implementation 'com.github.bumptech.glide:annotations:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // 애니메이션 라이브러리 lottie
+    implementation 'com.airbnb.android:lottie:3.7.0'
+
+    //써클 이미지 뷰
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
