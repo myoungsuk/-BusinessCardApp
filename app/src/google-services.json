@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "438407865302",
+    "firebase_url": "https://busisnesscardapp-default-rtdb.firebaseio.com",
+    "project_id": "busisnesscardapp",
+    "storage_bucket": "busisnesscardapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438407865302:android:a11b3ebdab7bd381d6ba77",
+        "android_client_info": {
+          "package_name": "com.example.businesscarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438407865302-de5opqmevir7kmm3c12dmp3eg1bh1vdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.businesscarapp",
+            "certificate_hash": "dfec56b88315783df5c39e7b3b14f299e76891bd"
+          }
+        },
+        {
+          "client_id": "438407865302-u8lhs5smv3o4fls4h8h06vqamgq3q93l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCot6CrLVjEFpVllF7xEUXYmiLDW5gUDeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438407865302-u8lhs5smv3o4fls4h8h06vqamgq3q93l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
