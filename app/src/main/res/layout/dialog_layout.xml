@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_root"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@android:color/transparent"
+    android:layout_marginStart="@dimen/standard_layout_margin"
+    android:layout_marginEnd="@dimen/standard_layout_margin" >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_main_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/help_item_top_margin"
+        android:layout_marginStart="@dimen/standard_layout_margin"
+        android:layout_marginEnd="@dimen/standard_layout_margin"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/dialogPrimary"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:id="@+id/ll_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/help_item_top_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:text="@string/username"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/headline_h6"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:id="@+id/tv_text1"/>
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/body1"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="textStart"
+                    android:text="@string/email" />
+
+                <TextView
+                    android:id="@+id/tv_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:textSize="@dimen/body1"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="textStart"
+                    android:text="@string/phone" />
+
+                <TextView
+                    android:id="@+id/tv_text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/body1"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="textStart"
+                    android:text="@string/description" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/make_call"
+                        android:textAlignment="center"
+                        android:layout_marginTop="20dp"
+                        android:textAllCaps="false"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"
+                        app:icon="@drawable/ic_phone_black_24dp"
+                        app:iconTint="@color/dialogPrimaryDark"
+                        app:iconTintMode="multiply"
+                        app:iconSize="20dp"
+                        app:rippleColor="@color/dialogPrimary"
+                        android:backgroundTint="@color/backgroundGray"
+                        android:textSize="@dimen/button_text"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        android:textColor="@color/dialogPrimaryDark"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="20dp"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/transparent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/btn_cancel"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/headline_h6"
+                        android:textAllCaps="true"
+                        android:padding="10dp"
+                        app:rippleColor="@color/dialogPrimary"
+                        android:backgroundTint="#0085FF"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        android:textColor="@android:color/white"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="0dp"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/rl_image_root"
+        android:layout_width="@dimen/help_dialog_size"
+        android:layout_height="@dimen/help_dialog_size"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/circle_gray_stroke">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_circle_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"/>
+    </RelativeLayout>
+</RelativeLayout>
