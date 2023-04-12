@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/standard_layout_margin"
+    android:layout_marginEnd="@dimen/standard_layout_margin"
+    android:background="#00000000"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_main_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/standard_layout_margin"
+        android:layout_marginTop="@dimen/help_item_top_margin"
+        android:layout_marginEnd="@dimen/standard_layout_margin"
+        app:cardBackgroundColor="@color/dialogPrimary"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:id="@+id/ll_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/help_item_top_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/tv_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:text="홍길동"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/headline_h6" />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:text="*****@****.***"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/body1" />
+
+
+                <TextView
+                    android:id="@+id/tv_text4"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:text="@string/description"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/body1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_call"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/backgroundGray"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="0dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="0dp"
+                        android:text="Send Message"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                        android:textColor="@color/dialogPrimaryDark"
+                        android:textSize="@dimen/button_text"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/ic_baseline_chat_24"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/teal_200"
+                        app:iconTintMode="multiply"
+                        app:rippleColor="@color/dialogPrimary" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/transparent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_cancel"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/teal_200"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="10dp"
+                        android:text="@string/btn_cancel"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/headline_h6"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:cornerRadius="0dp"
+                        app:rippleColor="@color/dialogPrimary" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/rl_image_root"
+        android:layout_width="@dimen/help_dialog_size"
+        android:layout_height="@dimen/help_dialog_size"
+        android:layout_centerHorizontal="true"
+
+        android:background="@drawable/ic_profiles">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_circle_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+</RelativeLayout>
