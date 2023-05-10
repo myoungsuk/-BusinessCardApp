@@ -80,6 +80,7 @@ class NoticeFragment :Fragment(R.layout.fragment_notice) {
             intent.putExtra("contents", it.content)
             intent.putExtra("photo", it.imageUrl)
             intent.putExtra("date", it.createdAt)
+            intent.putExtra("id", it.noticeId)
             context?.startActivity(intent)
 
         }) //아티클 어댑터 호출
