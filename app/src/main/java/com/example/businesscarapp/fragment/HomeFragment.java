@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.businesscarapp.R;
+import com.example.businesscarapp.activity.OCRActivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -112,15 +113,15 @@ public class HomeFragment extends Fragment
         });
 
         //OCR 기능 들어가는 곳
-//        accessButton.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Intent intent = new Intent(getActivity(), ChatbotActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        accessButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getActivity(), OCRActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return v;
