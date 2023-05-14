@@ -3,7 +3,6 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" }
     }
 }
 dependencyResolutionManagement {
@@ -15,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BusinessCarApp"
 include ':app'
-include ':opencv'
