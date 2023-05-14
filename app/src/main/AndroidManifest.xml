@@ -23,6 +23,9 @@
             android:name=".activity.AddArticleActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.NoticeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AddPhotoActivity"
             android:exported="false" />
         <activity

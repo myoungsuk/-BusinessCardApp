@@ -1,22 +1,25 @@
 package com.example.businesscarapp.fragment;
 
+
 import android.app.AlertDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
 import com.example.businesscarapp.R;
 import com.example.businesscarapp.models.Friend;
 import com.google.android.material.button.MaterialButton;
@@ -31,6 +34,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
 
 public class FriendFragment extends Fragment
 {
@@ -216,7 +220,7 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
         });
 
     }
-//
+////
 //            coolDialog.setCallButtonOnClickListener()  {
 //                val intent = Intent(context, MessageActivity::class.java)
 //                intent.putExtra("destinationUid", adapteruid)
@@ -238,4 +242,3 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
         return friendList.size();
     }
 }
-
