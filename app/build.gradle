@@ -64,6 +64,4 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    // card stack view
-    implementation 'com.loopeer.library:cardstack:1.0.2'
 }
