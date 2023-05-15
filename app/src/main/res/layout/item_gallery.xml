@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <!-- 기존의 다른 뷰들 -->
 
-    <com.loopeer.cardstack.CardStackView
-        android:id="@+id/stackview_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!-- 여기에 추가적인 뷰나 레이아웃을 작성할 수 있습니다 -->
 
 </LinearLayout>
