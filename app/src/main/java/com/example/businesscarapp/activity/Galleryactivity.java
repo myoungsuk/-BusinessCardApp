@@ -8,6 +8,6 @@ public class Galleryactivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_gallery);
+        setContentView(R.layout.activity_gallery);
     }
 }
