@@ -48,8 +48,6 @@ public class SettingFragment extends Fragment {
     private String uid;
     public CustomDialog dialog = new CustomDialog();
 
-    private OnFragmentInteractionListener mListener;
-
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -74,7 +72,7 @@ public class SettingFragment extends Fragment {
         TextView emailText = v.findViewById(R.id.email);
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
-        TextView galleryButton = v.findViewById(R.id.GalleryButton);
+        TextView GalleryButton = v.findViewById(R.id.GalleryButton);
 
         // Display profile data
         mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -151,39 +149,16 @@ public class SettingFragment extends Fragment {
         });
 
         // Gallery button click listener
-        galleryButton.setOnClickListener(new View.OnClickListener() {
+        GalleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Request activity transition to GalleryActivity
-                if (mListener != null) {
-                    mListener.onFragmentInteraction();
-                }
+                Intent intent = new Intent(getActivity(), Galleryactivity.class);
+                startActivity(intent);
             }
         });
 
         return v;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction();
-    }
-
-    // Fragment가 액티비티에 연결될 때 호출되는 메서드
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    // Fragment가 액티비티와의 연결이 해제될 때 호출되는 메서드
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 }
