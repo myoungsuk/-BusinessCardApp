@@ -33,7 +33,13 @@
             android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity android:name=".activity.Galleryactivity"
-            android:exported="false" />
+            android:exported="true" />
+        <activity android:name=".activity.CardStackAdapter"
+            android:exported="true" />
+        <activity android:name=".activity.CardStackCallback"
+            android:exported="true" />
+        <activity android:name=".activity.ItemModel"
+            android:exported="true" />
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true">
