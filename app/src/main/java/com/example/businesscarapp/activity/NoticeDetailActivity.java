@@ -131,10 +131,15 @@ public class NoticeDetailActivity extends AppCompatActivity
         // 예를 들면 Glide를 사용하면 다음과 같습니다.
         // implementation 'com.github.bumptech.glide:glide:4.12.0'
         // annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-        Glide.with(this)
-                .load(photoUrl)
-                .apply(new RequestOptions().circleCrop())
-                .into(profileImageView);
+        if(photoUrl != null && !photoUrl.isEmpty()){
+            Glide.with(this)
+                    .load(photoUrl)
+                    .apply(new RequestOptions().circleCrop())
+                    .into(profileImageView);
+        }
+        else{
+            profileImageView.setImageResource(R.drawable.ic_baseline_person_24);
+        }
     }
 
 }

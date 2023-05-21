@@ -43,11 +43,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-runtime:2.5.3'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //코파일럿 테마
-    implementation 'com.google.android.material:material:1.9.0-beta01'
+    implementation 'com.google.android.material:material:1.8.0'
 
     //firebase
     implementation platform('com.google.firebase:firebase-bom:31.3.0')

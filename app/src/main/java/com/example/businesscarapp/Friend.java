@@ -9,6 +9,7 @@ public class Friend
 
     public Friend() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        this("", "", "", "");
     }
 
     public Friend(String name, String email, String profileImageUrl, String uid) {
