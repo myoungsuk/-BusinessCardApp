@@ -92,7 +92,6 @@ public class Galleryactivity extends AppCompatActivity {
 
         //예외가 발생하는 부분
         manager.setScaleInterval(0.6f);
-
         manager.setSwipeThreshold(0.3f);
         manager.setMaxDegree(20.0f);
         manager.setDirections(Direction.FREEDOM);
