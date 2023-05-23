@@ -41,32 +41,32 @@
             android:textColor="@android:color/white"
             android:textSize="26sp" />
 
-        <!--  사용자 대학교  -->
-        <TextView
-            android:id="@+id/item_university"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+<!--        &lt;!&ndash;  사용자 대학교  &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/item_university"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="20sp" />-->
 
-        <!--  사용자 전공  -->
-        <TextView
-            android:id="@+id/item_major"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+<!--        &lt;!&ndash;  사용자 전공  &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/item_major"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="20sp" />-->
 
-        <!--  사용자 기술 스택 -->
-        <TextView
-            android:id="@+id/item_skill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+<!--        &lt;!&ndash;  사용자 기술 스택 &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/item_skill"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="20sp" />-->
 
         <!--  사용자 나이   -->
         <TextView

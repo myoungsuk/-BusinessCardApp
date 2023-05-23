@@ -25,7 +25,7 @@ import java.util.List;
 
 public class Galleryactivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Galleryactivity";
     private CardStackLayoutManager manager;
     private CardStackAdapter adapter;
 
@@ -89,7 +89,10 @@ public class Galleryactivity extends AppCompatActivity {
         manager.setStackFrom(StackFrom.None);
         manager.setVisibleCount(3);
         manager.setTranslationInterval(8.0f);
-        manager.setScaleInterval(0.95f);
+
+        //예외가 발생하는 부분
+        manager.setScaleInterval(0.6f);
+
         manager.setSwipeThreshold(0.3f);
         manager.setMaxDegree(20.0f);
         manager.setDirections(Direction.FREEDOM);
@@ -119,6 +122,12 @@ public class Galleryactivity extends AppCompatActivity {
         items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전"));
         items.add(new ItemModel(R.drawable.sample4, "윤공주", "19", "청주"));
         items.add(new ItemModel(R.drawable.sample5, "유선", "25", "광주"));
+
+        items.add(new ItemModel(R.drawable.sample5, "박경아", "24", "서울"));
+        items.add(new ItemModel(R.drawable.sample4, "조정은", "20", "부산"));
+        items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전"));
+        items.add(new ItemModel(R.drawable.sample2, "윤공주", "19", "청주"));
+        items.add(new ItemModel(R.drawable.sample1, "유선", "25", "광주"));
         return items;
 
     }
