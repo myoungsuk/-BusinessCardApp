@@ -23,10 +23,9 @@
     <LinearLayout
         android:id="@+id/layout_bottom"
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:padding="16dp"
         android:background="@drawable/gradation_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,32 +40,6 @@
             android:textColor="@android:color/white"
             android:textSize="26sp" />
 
-<!--        &lt;!&ndash;  사용자 대학교  &ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:id="@+id/item_university"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="20sp" />-->
-
-<!--        &lt;!&ndash;  사용자 전공  &ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:id="@+id/item_major"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="20sp" />-->
-
-<!--        &lt;!&ndash;  사용자 기술 스택 &ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:id="@+id/item_skill"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="20sp" />-->
 
         <!--  사용자 나이   -->
         <TextView
@@ -77,6 +50,33 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
+        <!--  사용자 대학교   -->
+        <TextView
+            android:id="@+id/item_univ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <!--  사용자    -->
+        <TextView
+            android:id="@+id/item_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <!--  사용자 거주지   -->
+        <TextView
+            android:id="@+id/item_skill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
         <!--  사용자 거주지   -->
         <TextView
             android:id="@+id/item_city"
@@ -85,7 +85,6 @@
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-
 
     </LinearLayout>
 

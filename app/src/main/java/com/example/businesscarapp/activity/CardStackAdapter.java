@@ -43,13 +43,16 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
-        TextView name, age, area;
+        TextView name, age, area, univ, major, skill;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.item_image);
             name = itemView.findViewById(R.id.item_name);
             age = itemView.findViewById(R.id.item_age);
             area = itemView.findViewById(R.id.item_city);
+            univ = itemView.findViewById(R.id.item_univ);
+            major = itemView.findViewById(R.id.item_major);
+            skill = itemView.findViewById(R.id.item_skill);
         }
 
         void setData(ItemModel data) {
@@ -61,6 +64,9 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
             name.setText(data.getNama());
             age.setText(data.getUsia());
             area.setText(data.getKota());
+            univ.setText(data.getuniv());
+            major.setText(data.getmajor());
+            skill.setText(data.getSkill());
         }
     }
 

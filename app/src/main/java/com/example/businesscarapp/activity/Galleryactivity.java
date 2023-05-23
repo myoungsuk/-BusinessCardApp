@@ -45,16 +45,16 @@ public class Galleryactivity extends AppCompatActivity {
             public void onCardSwiped(Direction direction) {
                 Log.d(TAG, "onCardSwiped: p=" + manager.getTopPosition() + " d=" + direction);
                 if (direction == Direction.Right) {
-                    Toast.makeText(Galleryactivity.this, "Direction Right", Toast.LENGTH_SHORT).show();
+
                 }
                 if (direction == Direction.Top) {
-                    Toast.makeText(Galleryactivity.this, "Direction Top", Toast.LENGTH_SHORT).show();
+
                 }
                 if (direction == Direction.Left) {
-                    Toast.makeText(Galleryactivity.this, "Direction Left", Toast.LENGTH_SHORT).show();
+
                 }
                 if (direction == Direction.Bottom) {
-                    Toast.makeText(Galleryactivity.this, "Direction Bottom", Toast.LENGTH_SHORT).show();
+
                 }
 
                 // Paginating
@@ -116,17 +116,17 @@ public class Galleryactivity extends AppCompatActivity {
 
     private List<ItemModel> addList() {
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.sample1, "박경아", "24", "서울"));
-        items.add(new ItemModel(R.drawable.sample2, "조정은", "20", "부산"));
-        items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전"));
-        items.add(new ItemModel(R.drawable.sample4, "윤공주", "19", "청주"));
-        items.add(new ItemModel(R.drawable.sample5, "유선", "25", "광주"));
+        items.add(new ItemModel(R.drawable.sample1, "박경아", "24", "서울", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample2, "조정은", "20", "부산","충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample4, "윤공주", "19", "청주", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample5, "유선", "25", "광주", "충북대", "소프트웨어학과", "백엔드"));
 
-        items.add(new ItemModel(R.drawable.sample5, "박경아", "24", "서울"));
-        items.add(new ItemModel(R.drawable.sample4, "조정은", "20", "부산"));
-        items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전"));
-        items.add(new ItemModel(R.drawable.sample2, "윤공주", "19", "청주"));
-        items.add(new ItemModel(R.drawable.sample1, "유선", "25", "광주"));
+        items.add(new ItemModel(R.drawable.sample5, "박경아", "24", "서울", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample4, "조정은", "20", "부산", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample3, "옥주현", "27", "대전", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample2, "윤공주", "19", "청주", "충북대", "소프트웨어학과", "백엔드"));
+        items.add(new ItemModel(R.drawable.sample1, "유선", "25", "광주", "충북대", "소프트웨어학과", "백엔드"));
         return items;
 
     }
