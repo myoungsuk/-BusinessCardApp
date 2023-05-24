@@ -56,6 +56,10 @@ public class RegisterActivity extends AppCompatActivity
         EditText passwordEditText = findViewById(R.id.passwordEditText);
         EditText passwordCheckEditText = findViewById(R.id.passwordCheckEditText);
         EditText nameEditText = findViewById(R.id.et_registration_name);
+        EditText etSchool = findViewById(R.id.et_school);
+        EditText etDepartment = findViewById(R.id.et_department);
+        EditText etStudentId = findViewById(R.id.et_student_id);
+        EditText et_description = findViewById(R.id.et_description);
 
         btnGotoLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -100,10 +104,20 @@ public class RegisterActivity extends AppCompatActivity
                 progressBar.setVisibility(View.VISIBLE);
 
                 if(!email.equals("") && !password.equals("") && !passwordCheckEditText.getText().toString().equals("")) {
-                    createUser(email, password, nameEditText.getText().toString(), "");
+                    EditText etSchool = findViewById(R.id.et_school);
+                    EditText etDepartment = findViewById(R.id.et_department);
+                    EditText etStudentId = findViewById(R.id.et_student_id);
+                    EditText et_description = findViewById(R.id.et_description);
+
+                    createUser(email, password, nameEditText.getText().toString(), "",
+                            etSchool.getText().toString(),
+                            etDepartment.getText().toString(),
+                            etStudentId.getText().toString(),
+                            et_description.getText().toString());
 
                     progressBar.setVisibility(View.GONE);
-                }else {
+                } else {
+
                     // 이메일과 비밀번호가 공백인 경우
                     Toast.makeText(RegisterActivity.this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
                 }
@@ -112,7 +126,8 @@ public class RegisterActivity extends AppCompatActivity
     }
 
 
-    private void createUser(String email, String password, String name, String profileImageUrl) {
+    private void createUser(String email, String password, String name, String profileImageUrl,
+                            String school, String department, String studentId, String description) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -132,14 +147,18 @@ public class RegisterActivity extends AppCompatActivity
                             hashMap.put("email", email);
                             hashMap.put("name", name);
                             hashMap.put("profileImageUrl", profileImageUrl);
+                            // 학교, 학과, 학번 , 본인소개 추가
+                            hashMap.put("school", school);
+                            hashMap.put("department", department);
+                            hashMap.put("studentId", studentId);
+                            hashMap.put("description", description);
+
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference("Users");
                             reference.child(uid).setValue(hashMap);
 
                             Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                             finish();
-                            //테스트
-
                         } else
                         {
                             // 계정이 중복된 경우
@@ -148,6 +167,7 @@ public class RegisterActivity extends AppCompatActivity
                     }
                 });
     }
+
 
 
 }
