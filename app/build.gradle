@@ -39,7 +39,6 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-runtime:2.5.3'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.0'
@@ -49,6 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //코파일럿 테마
     implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
 
     //firebase
     implementation platform('com.google.firebase:firebase-bom:31.3.0')
@@ -73,7 +73,6 @@ dependencies {
     //써클 이미지 뷰
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
 
     // Coroutines
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
@@ -140,4 +139,10 @@ dependencies {
 
     // 애니메이션 라이브러리 lottie
     implementation 'com.airbnb.android:lottie:3.7.0'
+
+    //Google Cloud Vision API
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    implementation 'com.google.api-client:google-api-client-android:1.23.0' exclude module: 'httpclient'
+    implementation 'com.google.http-client:google-http-client-gson:1.23.0' exclude module: 'httpclient'
+    implementation 'com.google.apis:google-api-services-vision:v1-rev369-1.23.0'
 }
