@@ -14,9 +14,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -44,17 +43,20 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class CloudVisionAPIActivity extends AppCompatActivity {
     //    private static final String CLOUD_VISION_API_KEY = BuildConfig.API_KEY;
-    private static final String CLOUD_VISION_API_KEY = "";
+    private static final String CLOUD_VISION_API_KEY = "AIzaSyDYqi3NYMninIEnrFkdOWQwcQjWwbAYauE";
     public static final String FILE_NAME = "temp.jpg";
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
@@ -70,9 +72,11 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
     private TextView mImageDetails;
     private ImageView mMainImage;
 
+    private FirebaseUser user;
+    private FirebaseDatabase database;
+    private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
     private Button saveButton;
-//    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-//    DatabaseReference conditionRef = mRootRef.child("Data");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,9 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cloudvisionapi);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        auth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
@@ -312,19 +319,34 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bitmap, resizedWidth, resizedHeight, false);
     }
 
-//        private static String convertResponseToString(BatchAnnotateImagesResponse response) {
-//        StringBuilder message = new StringBuilder("I found these things:\n\n");
+    //추출된 데이터 파이어베이스 저장
+    private void saveUserData(String name, String univ, String dept, String snum) {
+        FirebaseUser user = auth.getCurrentUser();
+        String uid = user.getUid();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+        hashMap.put("uid", uid);
+        hashMap.put("name", name);
+        hashMap.put("school", univ);
+        hashMap.put("department", dept);
+        hashMap.put("studentId", snum);
+
+//        고유 키
+//        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("your_node_name");
+//        String key = databaseRef.push().getKey();
+//        databaseRef.child(key).setValue(yourData);
 //
-//        //텍스트
-//        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
-//        if (labels != null) {
-//            message.append(labels.get(0).getDescription());
-//        } else {
-//            message.append("nothing");
-//        }
-//
-//        return message.toString();
-//    }
+//        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("your_node_name");
+//        String key = System.currentTimeMillis() + "_" + uniqueValue;
+//        databaseRef.child(key).setValue(yourData);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("Users");
+        reference.child(uid).setValue(hashMap);
+
+        Toast.makeText(CloudVisionAPIActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
+    }
+
     private String[] convertResponseToString(BatchAnnotateImagesResponse response) {
         // 응답으로부터 라벨을 얻습니다.
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
@@ -345,6 +367,7 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
             String univ = ""; // 학교
             String dept = ""; // 전공
             String snum = ""; // 학번
+            String uid = ""; // uid
 
             String email = ""; // 이메일
             String phoneNum = ""; // 폰번호
@@ -366,15 +389,6 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
 
                 // 이름
                 name = txt[18]; // 충북대 학생증 기준 배열 18번째가 이름
-//                String[] lastNames = { "김", "이", "박", "최", "정", "강", "조", "윤", "장", "임", "강" };
-//
-//                for (int j = 0; i < txt.length; j++) {
-//                    String firstChar = txt[j].substring(0, 1);
-//                    if (Arrays.asList(lastNames).contains(firstChar)) {
-//                        name = txt[j];
-//                        break;
-//                    }
-//                }
 
                 // 학교
                 if (i > 0 && txt[i].contains("대학교")) {
@@ -480,6 +494,8 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
 
             EditText nameEditText = findViewById(R.id.nameEditText);
             nameEditText.setText(name);
+            nameEditText.getText().toString();
+
 
             EditText snumEditText = findViewById(R.id.snumEditText);
             snumEditText.setText(snum);
@@ -490,8 +506,18 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
             EditText univEditText = findViewById(R.id.univEditText);
             univEditText.setText(univ);
 
-            saveButton = (Button) findViewById(R.id.saveButton);
+            String finalName = name;
+            String finalUniv = univ;
+            String finalDept = dept;
+            String finalSnum = snum;
 
+            saveButton = (Button) findViewById(R.id.saveButton);
+            saveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    saveUserData(finalName, finalUniv, finalDept, finalSnum);
+                }
+            });
 
             System.out.println("name: " + name);
             System.out.println("studentID: " + snum);
@@ -501,6 +527,8 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
             System.out.println("phoneNum: " + phoneNum);
             System.out.println("Tel: " + tel);
             System.out.println("Email: " + email);
+            System.out.println("Fax: " + fax);
+
             // 배열을 반환합니다.
             return txt;
         } else {
