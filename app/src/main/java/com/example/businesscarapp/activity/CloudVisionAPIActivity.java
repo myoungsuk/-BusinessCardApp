@@ -1,11 +1,7 @@
 package com.example.businesscarapp.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 
-import android.Manifest;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,6 +17,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.Manifest;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+
+
 
 import com.example.businesscarapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,16 +40,6 @@ import com.google.api.services.vision.v1.model.AnnotateImageRequest;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesRequest;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.google.api.services.vision.v1.model.EntityAnnotation;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,8 +47,19 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
-public class CloudVisionAPIActivity extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+
+public class CloudVisionAPIActivity extends AppCompatActivity
+{
     //    private static final String CLOUD_VISION_API_KEY = BuildConfig.API_KEY;
     private static final String CLOUD_VISION_API_KEY = "AIzaSyDYqi3NYMninIEnrFkdOWQwcQjWwbAYauE";
     public static final String FILE_NAME = "temp.jpg";
@@ -249,7 +254,8 @@ public class CloudVisionAPIActivity extends AppCompatActivity {
         return annotateRequest;
     }
 
-    private class LabelDetectionTask extends AsyncTask<Object, Void, String> {
+    private class LabelDetectionTask extends AsyncTask<Object, Void, String>
+    {
         private final WeakReference<CloudVisionAPIActivity> mActivityWeakReference;
         private final Vision.Images.Annotate mRequest;
 
