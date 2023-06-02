@@ -7,19 +7,7 @@
     android:fitsSystemWindows="true"
     >
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,6 +59,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="학교" />
+                <EditText
+                    android:id="@+id/decriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:maxLines="8"
+                    android:minLines="4"
+                    android:gravity="top"
+                    android:hint="간단하게 본인을 설명해주세요"
+                    />
+
                 <Button
                     android:id="@+id/saveButton"
                     android:layout_width="match_parent"
