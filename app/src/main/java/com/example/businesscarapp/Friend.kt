@@ -7,7 +7,8 @@ data class Friend(
     var uid: String = "",
     var studentId: String = "",
     var school: String = "",
-    var department: String = ""
+    var department: String = "",
+    var description: String = ""
 ) {
-    constructor() : this("", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "","")
 }
