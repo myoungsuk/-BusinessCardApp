@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -123,6 +124,20 @@ public class CloudVisionAPIActivity extends AppCompatActivity
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select a photo"),
+                    GALLERY_IMAGE_REQUEST);
+
+//            Intent intent = new Intent();
+//            intent.setType("image/*");
+//            intent.setAction(Intent.ACTION_GET_CONTENT);
+//
+//            // Set initial directory for API 26 and above
+//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//                File picturesDirectory = Environment.getExternalStorageStorageDirectory(Environment.DIRECTORY_PICTURES);
+//                Uri picturesDirectoryUri = Uri.fromFile(picturesDirectory);
+//                intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, picturesDirectoryUri);
+//            }
+
             startActivityForResult(Intent.createChooser(intent, "Select a photo"),
                     GALLERY_IMAGE_REQUEST);
         }

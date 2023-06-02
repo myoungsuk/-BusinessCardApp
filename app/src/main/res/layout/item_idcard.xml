@@ -1,71 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#FFFFFF"
-    android:orientation="horizontal">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
 
-        <ImageView
-            android:id="@+id/idcard_item_iv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/idcard_item_tv"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="4dp"
-            android:text="이름"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/idcard_item_email"
-            app:layout_constraintStart_toEndOf="@+id/idcard_item_iv"
-            app:layout_constraintTop_toTopOf="@+id/idcard_item_iv" />
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom = "16dp"
+            android:paddingEnd="16dp">
 
-        <TextView
-            android:id="@+id/idcard_item_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="26dp"
-            android:layout_marginTop="6dp"
-            android:text="이메일"
-            android:textColor="#8A252525"
-            app:layout_constraintBottom_toBottomOf="@+id/idcard_item_iv"
-            app:layout_constraintStart_toEndOf="@+id/idcard_item_iv"
-            app:layout_constraintTop_toBottomOf="@+id/idcard_item_tv" />
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/schoolTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/gray_ec"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/departmentTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/schoolTextView" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:ems="5"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/departmentTextView"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
