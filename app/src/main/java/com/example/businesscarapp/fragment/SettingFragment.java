@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.businesscarapp.CustomDialog;
 import com.example.businesscarapp.R;
 import com.example.businesscarapp.activity.AddPhotoActivity;
+import com.example.businesscarapp.activity.IDcardListActivity;
 import com.example.businesscarapp.activity.LoginActivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,6 +68,7 @@ public class SettingFragment extends Fragment
         TextView emailText = v.findViewById(R.id.email);
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
+        TextView idcardListButton = v.findViewById(R.id.idcardListButton);
 
         //프로필에 데이터 보여주기
         mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener()
@@ -142,6 +145,17 @@ public class SettingFragment extends Fragment
                 startActivity(intent);
             }
         });
+
+        //명함목록 들어가기
+        idcardListButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), IDcardListActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         //로그아웃하기
         signoutButton.setOnClickListener(new View.OnClickListener()
