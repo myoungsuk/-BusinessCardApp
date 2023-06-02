@@ -41,15 +41,14 @@
         android:background="@drawable/layout_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbarLayout"
-        app:layout_constraintVertical_bias="0.8">
+        app:layout_constraintVertical_bias="0.2">
 
         <ImageView
             android:id="@+id/profile_imageview"
-            android:layout_width="146dp"
-            android:layout_height="151dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="50dp"
             android:src="@drawable/ic_baseline_person_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,27 +60,25 @@
             android:id="@+id/profile_textview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:gravity="center"
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.371"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/profile_textview_email"
             app:layout_constraintTop_toBottomOf="@+id/profile_imageview" />
 
         <TextView
-            android:id="@+id/profile_textview_snum"
+            android:id="@+id/profile_textview_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="StudentID"
+            android:layout_marginTop="12dp"
+            android:text="Email"
             android:textColor="#505050"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/profile_textview_email"
-            app:layout_constraintTop_toBottomOf="@+id/profile_textview_email" />
+            app:layout_constraintStart_toStartOf="@+id/profile_textview_snum"
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_name" />
 
         <TextView
             android:id="@+id/profile_textview_dept"
@@ -91,7 +88,7 @@
             android:text="dept"
             android:textColor="#505050"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/profile_textview_snum"
+            app:layout_constraintStart_toStartOf="@+id/profile_textview_univ"
             app:layout_constraintTop_toBottomOf="@+id/profile_textview_snum" />
 
         <TextView
@@ -99,32 +96,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="unviversity"
+            android:text="university"
+            android:textColor="#505050"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_dept"
+            tools:layout_editor_absoluteX="116dp" />
+
+        <TextView
+            android:id="@+id/profile_textview_snum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="StudentID"
             android:textColor="#505050"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/profile_textview_dept"
-            app:layout_constraintTop_toBottomOf="@+id/profile_textview_dept" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_email" />
 
         <TextView
             android:id="@+id/profile_textview_desc"
-            android:layout_width="299dp"
+            android:layout_width="300dp"
             android:layout_height="117dp"
             android:text="description"
             android:textColor="#505050"
             android:textSize="15sp"
-            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="518dp" />
-
-        <TextView
-            android:id="@+id/profile_textview_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Email"
-            android:textColor="#505050"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/profile_textview_name"
-            app:layout_constraintTop_toBottomOf="@+id/profile_textview_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

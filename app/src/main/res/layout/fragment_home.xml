@@ -38,63 +38,62 @@
 
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop= "40dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
         android:background="@drawable/layout_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbarLayout">
+        app:layout_constraintTop_toTopOf="@+id/toolbarLayout"
+        app:layout_constraintVertical_bias="0.2">
+
 
         <ImageView
             android:id="@+id/profile_imageview"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="60dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintBottom_toTopOf="@+id/profile_textview_email"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/profile_textview_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#505050"
-            android:textSize="15sp"
-
-            app:layout_constraintBottom_toTopOf="@+id/profile_textview_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_imageview"
-            />
 
         <TextView
             android:id="@+id/profile_textview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/startText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_imageview" />
+
+        <TextView
+            android:id="@+id/profile_textview_desc"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:text="Description"
+            android:textColor="#505050"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_name" />
 
         <Button
             android:id="@+id/startText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="105dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="105dp"
-            android:layout_marginTop = "70dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/button_background"
             android:gravity="center"
             android:text="START"
@@ -102,8 +101,9 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_textview_name" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_desc" />
 
         <TextView
             android:id="@+id/text"
