@@ -234,7 +234,7 @@ public class AddPhotoActivity extends AppCompatActivity
                 mDatabase.child("Users").child(uid).child("profileImageUrl").setValue(uri.toString());
                 finish();
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "사진이 업로드 됬습니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "사진이 업로드 됐습니다.", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener()
         {
