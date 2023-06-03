@@ -41,6 +41,9 @@
             android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.IdcardFormStateActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CloudVisionAPIActivity"
             android:exported="false" />
 <!--        <activity-->
