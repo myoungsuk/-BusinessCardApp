@@ -96,7 +96,8 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
 
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView friendname, friendemail;
+        public TextView friendname, friendemail, friendnuiv, frienddept, friendsnum, frienddesc;
+
         public ImageView friendprofile;
 
         public MyViewHolder(@NonNull View itemView)
@@ -170,6 +171,11 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
         String holderName = friend.name;
         String holderEmail = friend.email;
         String adapterUid = friend.getUid();
+        String holderUniv = friend.school;
+        String holderDept = friend.department;
+        String holderSnum = friend.studentId;
+        String holderDesc = friend.description;
+
 //        String AdapterUid = friend.uid;
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
@@ -185,13 +191,22 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 ImageView photoImage = dialog.findViewById(R.id.iv_circle_image);
-                TextView emailText = dialog.findViewById(R.id.tv_text2);
-                TextView nameText = dialog.findViewById(R.id.tv_text1);
+                TextView emailText = dialog.findViewById(R.id.tv_text_email);
+                TextView nameText = dialog.findViewById(R.id.tv_text_name);
+                TextView univText = dialog.findViewById(R.id.tv_text_univ);
+                TextView deptText = dialog.findViewById(R.id.tv_text_dept);
+                TextView snumText = dialog.findViewById(R.id.tv_text_snum);
+                TextView descText = dialog.findViewById(R.id.tv_text_desc);
+
                 MaterialButton cancleButton = dialog.findViewById(R.id.btn_cancel);
                 MaterialButton messageButton = dialog.findViewById(R.id.btn_call);
 
                 emailText.setText(holderEmail);
                 nameText.setText(holderName);
+                univText.setText(holderUniv);
+                deptText.setText(holderDept);
+                snumText.setText(holderSnum);
+                descText.setText(holderDesc);
 
                 Glide.with(holder.itemView.getContext())
                         .load(holderPhoto)

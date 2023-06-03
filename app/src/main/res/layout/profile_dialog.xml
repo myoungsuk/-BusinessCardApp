@@ -41,7 +41,7 @@
 
                 <TextView
 
-                    android:id="@+id/tv_text1"
+                    android:id="@+id/tv_text_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/standard_layout_margin"
@@ -52,31 +52,67 @@
                     android:textAllCaps="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/headline_h6" />
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/tv_text2"
+                    android:id="@+id/tv_text_email"
                     style="@style/TextAppearance.MaterialComponents.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/standard_layout_margin"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="@dimen/standard_layout_margin"
-                    android:text="*****@****.***"
+                    android:text="hgd@gmail.com"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:textSize="@dimen/body1" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/tv_text_univ"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="충북대학교"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/body1" />
+
+                    <TextView
+                        android:id="@+id/tv_text_dept"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="전자공학부"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/body1" />
+                </LinearLayout>
                 <TextView
-                    android:id="@+id/tv_text4"
+                    android:id="@+id/tv_text_snum"
                     style="@style/TextAppearance.MaterialComponents.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/standard_layout_margin"
-                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="@dimen/standard_layout_margin"
-                    android:text="@string/description"
+                    android:text="2019033052"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/body1" />
+
+                <TextView
+                    android:id="@+id/tv_text_desc"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_layout_margin"
+                    android:layout_marginEnd="@dimen/standard_layout_margin"
+                    android:text="임베디드 시스템 엔지니어"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:textSize="@dimen/body1" />
@@ -126,7 +162,6 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/button_height"
-                        android:layout_centerHorizontal="true"
                         android:backgroundTint="@color/teal_200"
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
@@ -141,6 +176,7 @@
                         app:cornerRadius="0dp"
                         app:rippleColor="@color/dialogPrimary" />
                 </RelativeLayout>
+                <!--android:background="@drawable/button_background"-->
 
 
             </LinearLayout>
