@@ -1,16 +1,27 @@
 package com.example.businesscarapp.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.businesscarapp.DBkey.DB_IDCARDS
 import com.example.businesscarapp.R
+import com.example.businesscarapp.activity.IDCardDetailActivity
+import com.example.businesscarapp.activity.NoticeDetailActivity
 import com.example.businesscarapp.adapters.ArticleAdapter
 import com.example.businesscarapp.adapters.IDCardAdapter
+import com.example.businesscarapp.adapters.OnItemClickListener
+import com.example.businesscarapp.models.ArticleModel
 import com.example.businesscarapp.models.IDcard
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -46,7 +57,20 @@ class IdCardFormFragment : Fragment()
         val view = inflater.inflate(R.layout.fragment_idcard_form, container, false)
         val idCardRecyclerView = view.findViewById<RecyclerView>(R.id.Id_RecyclerView)
         database = Firebase.database.reference
+        idCardAdapter = IDCardAdapter(object : OnItemClickListener {
 
+
+            override fun onItemClick(idCard: IDcard)
+            {
+                val intent = Intent(requireContext(), IDCardDetailActivity::class.java)
+                intent.putExtra("name",idCard.name)
+                intent.putExtra("studentID", idCard.studentId)
+                intent.putExtra("school", idCard.school)
+                intent.putExtra("department", idCard.department)
+                intent.putExtra("description", idCard.description)
+                startActivity(intent)
+            }
+        })
         idCardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         idCardRecyclerView.adapter = this.idCardAdapter
 
@@ -77,4 +101,14 @@ class IdCardFormFragment : Fragment()
 //        })
         return view
     }
+
+
+    fun refreshFragment(fragment: Fragment, fragmentManager: FragmentManager)
+    {
+        var ft: FragmentTransaction = fragmentManager.beginTransaction()
+        ft.detach(fragment).attach(fragment).commit()
+    }
+
+
+
 }

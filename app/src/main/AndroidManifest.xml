@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BusinessCarApp"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.AddCardPhotoActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.AddArticleActivity"
             android:exported="false" />
@@ -40,30 +45,33 @@
         <activity
             android:name=".activity.RegisterActivity"
             android:exported="false" />
-        <activity android:name=".activity.Galleryactivity"
+        <activity
+            android:name=".activity.Galleryactivity"
             android:exported="true" />
-        <activity android:name=".activity.CardStackAdapter"
+        <activity
+            android:name=".activity.CardStackAdapter"
             android:exported="true" />
-        <activity android:name=".activity.CardStackCallback"
+        <activity
+            android:name=".activity.CardStackCallback"
             android:exported="true" />
-        <activity android:name=".activity.ItemModel"
+        <activity
+            android:name=".activity.ItemModel"
             android:exported="true" />
         <activity
             android:name=".activity.IdcardFormStateActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.CloudVisionAPIActivity"
+            android:name=".activity.IDCardDetailActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".activity.LoginActivity"-->
-<!--            android:exported="true">-->
-
-<!--        </activity>-->
-
+        <activity
+            android:name=".activity.CloudVisionAPIActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".activity.LoginActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- </activity> -->
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -78,9 +86,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>
