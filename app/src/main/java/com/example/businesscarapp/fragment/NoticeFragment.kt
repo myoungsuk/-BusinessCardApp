@@ -30,7 +30,7 @@ class NoticeFragment :Fragment(R.layout.fragment_notice) {
     private lateinit var articleAdapter: ArticleAdapter
     private lateinit var articleDB: DatabaseReference
     private val articleList = mutableListOf<ArticleModel>() // 데이터 스냅샷을 통한 데이터 변경을 알기위해 아티클데이터 변수 설정
-    private var article: java.util.ArrayList<ArticleModel> = arrayListOf()
+    private var article:ArrayList<ArticleModel> = arrayListOf()
 
     //차일드 이벤트 리스너 전역변수 설정
     private val user = Firebase.auth.currentUser

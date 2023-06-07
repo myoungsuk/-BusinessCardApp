@@ -388,7 +388,7 @@ public class CloudVisionAPIActivity extends AppCompatActivity
 
     private void saveUserData(String name, String studentId, String department, String school, String description)
     {
-        IDcard cardModel = new IDcard(name, studentId, department, school, description);
+        IDcard cardModel = new IDcard("", name, studentId, department, school, description, System.currentTimeMillis() ,"");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -403,7 +403,7 @@ public class CloudVisionAPIActivity extends AppCompatActivity
         hashMap.put("school", cardModel.getSchool());
         hashMap.put("department", cardModel.getDepartment());
         hashMap.put("description", cardModel.getDescription());
-
+        hashMap.put("createdAt", cardModel.getCreatedAt());
         reference.setValue(hashMap);  // save data under the uid of current user with unique id
 
         Toast.makeText(CloudVisionAPIActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
@@ -698,6 +698,7 @@ public class CloudVisionAPIActivity extends AppCompatActivity
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.fragmentContainer, homeFragment);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });

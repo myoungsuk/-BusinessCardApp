@@ -29,32 +29,42 @@
                 android:id="@+id/profile_imageview"
                 android:layout_width="146dp"
                 android:layout_height="151dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="80dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_baseline_person_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+            <ImageView
+                android:id="@+id/add_photo_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_to_photos_24"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_imageview"
+                app:layout_constraintEnd_toEndOf="@+id/profile_imageview" />
+
             <TextView
                 android:id="@+id/profile_textview_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:text="Name"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/profile_imageview"
-                app:layout_constraintTop_toTopOf="@+id/profile_imageview" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
                 android:id="@+id/profile_textview_snum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="StudentID"
                 android:textColor="#505050"
                 android:textSize="15sp"
@@ -65,7 +75,7 @@
                 android:id="@+id/profile_textview_dept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="dept"
                 android:textColor="#505050"
                 android:textSize="15sp"
@@ -76,7 +86,7 @@
                 android:id="@+id/profile_textview_univ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="unviversity"
                 android:textColor="#505050"
                 android:textSize="15sp"
@@ -85,8 +95,8 @@
 
             <TextView
                 android:id="@+id/profile_textview_desc"
-                android:layout_width="299dp"
-                android:layout_height="117dp"
+                android:layout_width="300dp"
+                android:layout_height="320dp"
                 android:text="description"
                 android:textColor="#505050"
                 android:textSize="15sp"
@@ -100,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop = "10dp"
                 android:text="Email"
                 android:textColor="#505050"
                 android:textSize="15sp"
