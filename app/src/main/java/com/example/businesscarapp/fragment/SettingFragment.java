@@ -2,6 +2,7 @@ package com.example.businesscarapp.fragment;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.example.businesscarapp.R;
 import com.example.businesscarapp.activity.AddPhotoActivity;
 import com.example.businesscarapp.activity.IdcardFormStateActivity;
 import com.example.businesscarapp.activity.LoginActivity;
+import com.example.businesscarapp.activity.Galleryactivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,8 +38,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 
-public class SettingFragment extends Fragment
-{
+public class SettingFragment extends Fragment {
     private ArrayList<Friend> friendList = new ArrayList<>();
     private Friend friend;
     private DatabaseReference mDatabase;
@@ -48,12 +49,16 @@ public class SettingFragment extends Fragment
     private String uid;
     public CustomDialog dialog = new CustomDialog();
 
+    public SettingFragment() {
+        // Required empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
-        // Inflate the layout for this fragment
+
+        // Initialize Firebase instances
         auth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         firebaseStorage = FirebaseStorage.getInstance().getReference();
@@ -61,20 +66,23 @@ public class SettingFragment extends Fragment
         uid = user.getUid();
         friendList = new ArrayList<>();
 
-        ImageView profilephoto = v.findViewById(R.id.profile);
+        // Find views by id
+        ImageView profilePhoto = v.findViewById(R.id.profile);
         ImageView profileEdit = v.findViewById(R.id.photoedit);
         TextView nameText = v.findViewById(R.id.name);
         TextView emailText = v.findViewById(R.id.email);
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
+
+       // TextView GalleryButton = v.findViewById(R.id.GalleryButton);
+
         TextView idcardListButton = v.findViewById(R.id.idcardListButton);
 
-        //프로필에 데이터 보여주기
-        mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener()
-        {
+
+        // Display profile data
+        mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Friend friend = snapshot.getValue(Friend.class);
 
                 String email = friend.email;
@@ -83,43 +91,35 @@ public class SettingFragment extends Fragment
                 emailText.setText(email);
                 nameText.setText(name);
 
-                if (friend.profileImageUrl.equals(""))
-                {
-                } else
-                {
+                if (friend.profileImageUrl.equals("")) {
+                    // Handle empty profile image URL
+                } else {
+                    // Load profile image using Glide library
                     Glide.with(requireContext())
                             .load(friend.profileImageUrl)
                             .apply(new RequestOptions().circleCrop())
-                            .into(profilephoto);
+                            .into(profilePhoto);
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error)
-            {
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle database error
             }
         });
 
-        //이름변경하기
-        nameEditButton.setOnClickListener(new View.OnClickListener()
-        {
-
-
+        // Change name button click listener
+        nameEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                dialog.setButtonClickListener(new CustomDialog.OnButtonClickListener()
-                {
-
+            public void onClick(View view) {
+                dialog.setButtonClickListener(new CustomDialog.OnButtonClickListener() {
                     @Override
-                    public void onButton1Clicked()
-                    {
-
+                    public void onButton1Clicked() {
+                        // Handle button 1 click
                     }
 
                     @Override
-                    public void onButton2Clicked(String nameEdit)
-                    {
+                    public void onButton2Clicked(String nameEdit) {
                         nameText.setText(nameEdit);
                         mDatabase.child("Users").child(uid).child("name").setValue(nameEdit);
 
@@ -133,17 +133,18 @@ public class SettingFragment extends Fragment
             }
         });
 
-        //사진변경하기
-        profileEdit.setOnClickListener(new View.OnClickListener()
-        {
-
+        // Change profile photo button click listener
+        profileEdit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddPhotoActivity.class);
                 startActivity(intent);
             }
         });
+
+
+//         // Sign out button click listener
+//         signoutButton.setOnClickListener(new View.OnClickListener() {
 
         //명함목록 들어가기
         idcardListButton.setOnClickListener(new View.OnClickListener()
@@ -160,9 +161,9 @@ public class SettingFragment extends Fragment
         signoutButton.setOnClickListener(new View.OnClickListener()
         {
 
+
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | FLAG_ACTIVITY_NEW_TASK);
@@ -170,8 +171,17 @@ public class SettingFragment extends Fragment
             }
         });
 
+        // Gallery button click listener
+        GalleryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Request activity transition to GalleryActivity
+                Intent intent = new Intent(getActivity(), Galleryactivity.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }
-}
 
+}

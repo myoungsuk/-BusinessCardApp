@@ -36,7 +36,25 @@ android {
     namespace 'com.example.businesscarapp'
 }
 
+
 dependencies {
+
+    //yuyakido cardstackview
+    implementation "com.github.yuyakaido:cardstackview:2.3.4"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    constraints{
+        implementation("org.jetbrains.kotlin:kotlin-stdlb-jdk7:1.8.0"){
+            {
+                because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlb")
+            }
+        }
+
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
+                {
+                    because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlb")
+                }
+    }
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -73,6 +91,7 @@ dependencies {
     //써클 이미지 뷰
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
     // Coroutines
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
@@ -143,3 +162,4 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-gson:1.23.0' exclude module: 'httpclient'
     implementation 'com.google.apis:google-api-services-vision:v1-rev369-1.23.0'
 }
+
