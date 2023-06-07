@@ -234,30 +234,30 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
 //                    coolDialog.setCallButtonIconColor(android.R.color.holo_blue_bright);
 //                    coolDialog.setCallButtonText("Send Message");
 
-                    cancleButton.setOnClickListener(new View.OnClickListener()
+                cancleButton.setOnClickListener(new View.OnClickListener()
+                {
+
+                    @Override
+                    public void onClick(View view)
                     {
+                        dialog.dismiss();
+                    }
+                });
 
-                        @Override
-                        public void onClick(View view)
-                        {
-                            dialog.dismiss();
-                        }
-                    });
+                messageButton.setOnClickListener(new View.OnClickListener()
+                {
 
-                    messageButton.setOnClickListener(new View.OnClickListener()
+                    @Override
+                    public void onClick(View v)
                     {
-
-                        @Override
-                        public void onClick(View v)
-                        {
-                            Intent intent = new Intent(view.getContext(), MessageActivity.class);
-                            intent.putExtra("destinationUid", adapterUid);
-                            view.getContext().startActivity(intent);
-                        }
-                    });
-                }
-            });
-        }
+                        Intent intent = new Intent(view.getContext(), MessageActivity.class);
+                        intent.putExtra("destinationUid", adapterUid);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+            }
+        });
+    }
 
 //            coolDialog.setCallButtonOnClickListener()  {
 //                val intent = Intent(context, MessageActivity::class.java)

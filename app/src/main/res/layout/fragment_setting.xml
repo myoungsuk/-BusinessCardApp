@@ -132,19 +132,12 @@
         android:orientation="horizontal">
 
         <TextView
-
-<!--             android:id="@+id/GalleryButton"
-
-            android:id="@+id/idcardListButton" -->
-
+            android:id="@+id/idcardListButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
-
-            android:text="  명함 사진 관리하기"
             android:text="  명함 목록"
-
             android:textColor="#0B0A0A"
             android:textSize="20sp" />
 
@@ -161,11 +154,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/blank2"
+            android:id="@+id/GalleryButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="  "
+            android:text="  명함 사진 목록"
             android:textColor="#0B0A0A"
             android:textSize="20sp"
             android:background="?attr/selectableItemBackground"/>

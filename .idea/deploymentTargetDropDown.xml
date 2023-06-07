@@ -7,13 +7,11 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\20190\.android\avd\Pixel_2_API_30.avd" />
+            <value value="$USER_HOME$/.android/avd/Flutter_test_emu.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-
-    <timeTargetWasSelectedWithDropDown value="2023-06-02T11:09:55.013730Z" />
-
+    <timeTargetWasSelectedWithDropDown value="2023-06-07T05:51:22.499846Z" />
   </component>
 </project>

@@ -74,7 +74,7 @@ public class SettingFragment extends Fragment {
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
 
-       // TextView GalleryButton = v.findViewById(R.id.GalleryButton);
+        TextView GalleryButton = v.findViewById(R.id.GalleryButton);
 
         TextView idcardListButton = v.findViewById(R.id.idcardListButton);
 
