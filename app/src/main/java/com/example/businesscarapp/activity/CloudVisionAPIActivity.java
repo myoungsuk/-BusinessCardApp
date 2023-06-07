@@ -698,7 +698,6 @@ public class CloudVisionAPIActivity extends AppCompatActivity
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.fragmentContainer, homeFragment);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });

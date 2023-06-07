@@ -8,28 +8,7 @@
     android:padding="20dp">
 
 
-    <LinearLayout
-        android:id="@+id/toolbarLayout"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/background_login"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,13 +16,13 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/layout_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbarLayout"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
 
@@ -62,7 +41,7 @@
             android:id="@+id/profile_textview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="60dp"
             android:gravity="center"
             android:text="Name"
             android:textColor="@color/black"
@@ -75,7 +54,7 @@
             android:id="@+id/profile_textview_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="5dp"
             android:text="Email"
             android:textColor="#505050"
             android:textSize="15sp"
