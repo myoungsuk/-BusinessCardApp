@@ -19,8 +19,8 @@
             android:gravity="center">
             <ImageView
                 android:id="@+id/messageItem_imageview_profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/ic_baseline_person_24"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
@@ -34,13 +34,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이름"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
                 android:textColor="#000000"
-                android:textStyle="bold" />
+                />
             <TextView
                 android:id="@+id/messageItem_textView_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="1dp"
                 android:text="메세지"
                 android:textColor="#000000" />
             <TextView

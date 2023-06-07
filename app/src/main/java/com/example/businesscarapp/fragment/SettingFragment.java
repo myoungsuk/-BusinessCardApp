@@ -21,6 +21,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.businesscarapp.CustomDialog;
 import com.example.businesscarapp.R;
 import com.example.businesscarapp.activity.AddPhotoActivity;
+import com.example.businesscarapp.activity.IdcardFormStateActivity;
 import com.example.businesscarapp.activity.LoginActivity;
 import com.example.businesscarapp.activity.Galleryactivity;
 import com.example.businesscarapp.models.Friend;
@@ -72,7 +73,11 @@ public class SettingFragment extends Fragment {
         TextView emailText = v.findViewById(R.id.email);
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
-        TextView GalleryButton = v.findViewById(R.id.GalleryButton);
+
+       // TextView GalleryButton = v.findViewById(R.id.GalleryButton);
+
+        TextView idcardListButton = v.findViewById(R.id.idcardListButton);
+
 
         // Display profile data
         mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -137,8 +142,26 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        // Sign out button click listener
-        signoutButton.setOnClickListener(new View.OnClickListener() {
+
+//         // Sign out button click listener
+//         signoutButton.setOnClickListener(new View.OnClickListener() {
+
+        //명함목록 들어가기
+        idcardListButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), IdcardFormStateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //로그아웃하기
+        signoutButton.setOnClickListener(new View.OnClickListener()
+        {
+
+
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();

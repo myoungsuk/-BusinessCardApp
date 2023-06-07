@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.businesscarapp.R;
+import com.example.businesscarapp.activity.CloudVisionAPIActivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,6 +42,11 @@ public class HomeFragment extends Fragment
     private ImageView profile_imageview;
     private TextView profile_email;
     private TextView profile_name;
+    private TextView profile_snum;
+    private TextView profile_dept;
+    private TextView profile_univ;
+    private TextView profile_desc;
+
 
     private ArrayList<Friend> friendList = new ArrayList<>();
     private Friend friend;
@@ -73,8 +79,12 @@ public class HomeFragment extends Fragment
 
         accessButton = (Button) v.findViewById(R.id.startText);
         profile_imageview = (ImageView) v.findViewById(R.id.profile_imageview);
-        profile_email = (TextView) v.findViewById(R.id.profile_textview_email);
         profile_name = (TextView) v.findViewById(R.id.profile_textview_name);
+        profile_email = (TextView) v.findViewById(R.id.profile_textview_email);
+        profile_snum = (TextView) v.findViewById(R.id.profile_textview_snum);
+        profile_dept = (TextView) v.findViewById(R.id.profile_textview_dept);
+        profile_univ = (TextView) v.findViewById(R.id.profile_textview_univ);
+        profile_desc = (TextView) v.findViewById(R.id.profile_textview_desc);
 
 
         mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener()
@@ -87,9 +97,17 @@ public class HomeFragment extends Fragment
                 String email = friend.email;
                 String name = friend.name;
                 String photo = friend.profileImageUrl;
+                String snum = friend.studentId;
+                String dept = friend.department;
+                String univ = friend.school;
+                String desc = friend.description;
 
-                profile_email.setText(email);
                 profile_name.setText(name);
+                profile_email.setText(email);
+                profile_snum.setText(snum);
+                profile_dept.setText(dept);
+                profile_univ.setText(univ);
+                profile_desc.setText(desc);
 
 
                 if (friend.profileImageUrl.equals(""))
@@ -111,16 +129,16 @@ public class HomeFragment extends Fragment
             }
         });
 
-        //OCR 기능 들어가는 곳
-//        accessButton.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Intent intent = new Intent(getActivity(), ChatbotActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        //OCR
+        accessButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getActivity(), CloudVisionAPIActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return v;

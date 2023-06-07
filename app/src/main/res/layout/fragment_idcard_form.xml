@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="FREE BOARD"
+                android:text="학생증 명함 리스트"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/articleRecyclerView"
+            android:id="@+id/Id_RecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -45,27 +45,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
 
-        <!--&lt;!&ndash;    <TextView&ndash;&gt;-->
-        <!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;        android:id="@+id/emptyTextView"&ndash;&gt;-->
-        <!--&lt;!&ndash;        android:text="No articles"&ndash;&gt;-->
-        <!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@id/toolbarLayout"&ndash;&gt;-->
-        <!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-        <!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-        <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addFloatingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:contentDescription="fab_contrent_desc"
-            app:backgroundTint="@color/teal_200"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:rippleColor="@color/white"
-            app:srcCompat="@drawable/ic_add_black_24dp" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

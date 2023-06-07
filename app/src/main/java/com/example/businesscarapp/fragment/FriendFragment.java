@@ -1,23 +1,30 @@
 package com.example.businesscarapp.fragment;
 
+
+import static android.app.PendingIntent.getActivity;
+
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
 import com.example.businesscarapp.R;
+import com.example.businesscarapp.activity.MessageActivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +38,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
 
 public class FriendFragment extends Fragment
 {
@@ -88,7 +96,8 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
 
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView friendname, friendemail;
+        public TextView friendname, friendemail, friendnuiv, frienddept, friendsnum, frienddesc;
+
         public ImageView friendprofile;
 
         public MyViewHolder(@NonNull View itemView)
@@ -161,8 +170,13 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
         String holderPhoto = friend.profileImageUrl;
         String holderName = friend.name;
         String holderEmail = friend.email;
-//
-        String AdapterUid = friend.uid;
+        String adapterUid = friend.getUid();
+        String holderUniv = friend.school;
+        String holderDept = friend.department;
+        String holderSnum = friend.studentId;
+        String holderDesc = friend.description;
+
+//        String AdapterUid = friend.uid;
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
@@ -177,46 +191,74 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 ImageView photoImage = dialog.findViewById(R.id.iv_circle_image);
-                TextView emailText = dialog.findViewById(R.id.tv_text2);
-                TextView nameText = dialog.findViewById(R.id.tv_text1);
+                TextView emailText = dialog.findViewById(R.id.tv_text_email);
+                TextView nameText = dialog.findViewById(R.id.tv_text_name);
+                TextView univText = dialog.findViewById(R.id.tv_text_univ);
+                TextView deptText = dialog.findViewById(R.id.tv_text_dept);
+                TextView snumText = dialog.findViewById(R.id.tv_text_snum);
+                TextView descText = dialog.findViewById(R.id.tv_text_desc);
+
                 MaterialButton cancleButton = dialog.findViewById(R.id.btn_cancel);
                 MaterialButton messageButton = dialog.findViewById(R.id.btn_call);
 
                 emailText.setText(holderEmail);
                 nameText.setText(holderName);
+                univText.setText(holderUniv);
+                deptText.setText(holderDept);
+                snumText.setText(holderSnum);
+                descText.setText(holderDesc);
 
                 Glide.with(holder.itemView.getContext())
                         .load(holderPhoto)
                         .apply(new RequestOptions().circleCrop())
                         .into(photoImage);
 
-                cancleButton.setOnClickListener(new View.OnClickListener()
-                {
-
-                    @Override
-                    public void onClick(View view)
-                    {
-                        dialog.dismiss();
-                    }
-                });
-
-                messageButton.setOnClickListener(new View.OnClickListener()
-                {
-
-                    @Override
-                    public void onClick(View view)
-                    {
-                        //Todo 채팅이랑 연결하기
-//                        Intent intent = new Intent(getActivity(), MessageActivity.class);
-//                        intent.putExtra("destinationUid", AdapterUid);
-//                        startActivity(intent);
-                    }
-                });
-            }
-        });
-
-    }
+//                if (getActivity() != null)
+//                {
+//                    CoolDialog coolDialog = new CoolDialog(getContext());
+//                    coolDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                    coolDialog.requestContentView();
+//                    coolDialog.setCanceledOnTouchOutside(false);
+//                    Window dialogWindow = coolDialog.getWindow();
+//                    if (dialogWindow != null)
+//                    {
+//                        dialogWindow.setLayout(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
+//                    }
 //
+//                    coolDialog.setTextOnFirstTextView(holderName);
+//                    coolDialog.setTextOnSecondTextView(holderEmail);
+//                    coolDialog.setImageSize(150);
+//                    coolDialog.setImageResource(holderPhoto);
+//
+//                    coolDialog.setCallButtonIconResource(R.drawable.ic_baseline_chat_24);
+//                    coolDialog.setCallButtonIconColor(android.R.color.holo_blue_bright);
+//                    coolDialog.setCallButtonText("Send Message");
+
+                    cancleButton.setOnClickListener(new View.OnClickListener()
+                    {
+
+                        @Override
+                        public void onClick(View view)
+                        {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    messageButton.setOnClickListener(new View.OnClickListener()
+                    {
+
+                        @Override
+                        public void onClick(View v)
+                        {
+                            Intent intent = new Intent(view.getContext(), MessageActivity.class);
+                            intent.putExtra("destinationUid", adapterUid);
+                            view.getContext().startActivity(intent);
+                        }
+                    });
+                }
+            });
+        }
+
 //            coolDialog.setCallButtonOnClickListener()  {
 //                val intent = Intent(context, MessageActivity::class.java)
 //                intent.putExtra("destinationUid", adapteruid)
@@ -238,4 +280,3 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
         return friendList.size();
     }
 }
-
