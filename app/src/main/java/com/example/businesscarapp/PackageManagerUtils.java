@@ -1,4 +1,4 @@
-package com.example.businesscarapp.activity;
+package com.example.businesscarapp;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;

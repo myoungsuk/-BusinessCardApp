@@ -1,8 +1,10 @@
-package com.example.businesscarapp.activity;
+package com.example.businesscarapp;
 
 import java.util.List;
 
 import androidx.recyclerview.widget.DiffUtil;
+
+import com.example.businesscarapp.models.ItemModel;
 
 public class CardStackCallback extends DiffUtil.Callback {
 

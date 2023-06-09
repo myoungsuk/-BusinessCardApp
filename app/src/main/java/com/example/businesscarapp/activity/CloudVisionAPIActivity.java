@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -23,14 +22,16 @@ import android.Manifest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import com.example.businesscarapp.PackageManagerUtils;
+import com.example.businesscarapp.PermissionUtils;
 import com.example.businesscarapp.R;
 import com.example.businesscarapp.fragment.HomeFragment;
+
 import com.example.businesscarapp.models.IDcard;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -51,7 +52,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -62,6 +62,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class CloudVisionAPIActivity extends AppCompatActivity
@@ -86,6 +88,8 @@ public class CloudVisionAPIActivity extends AppCompatActivity
     private FirebaseUser user;
     private FirebaseDatabase database;
     private FirebaseAuth auth;
+
+
     private DatabaseReference mDatabase;
     private Button saveButton;
 
@@ -395,9 +399,17 @@ public class CloudVisionAPIActivity extends AppCompatActivity
         // Get current user's uid
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        DatabaseReference reference = database.getReference("IDcard").child(uid).push(); // create unique id for each data
+       DatabaseReference reference = database.getReference("IDcard").child(uid).push();
 
         HashMap<String, Object> hashMap = new HashMap<>();
+//        DatabaseReference reference = database.getReference("IDcard").child(uid);
+//        String key = reference.push().getKey(); // 이 키를 저장해둡니다.
+//
+//        Map<String, Object> cardValues = idcard.toMap();
+//        Map<String, Object> childUpdates = new HashMap<>();
+//        childUpdates.put("/" + key, cardValues);
+//        reference.updateChildren(childUpdates);
+
         hashMap.put("name", cardModel.getName());
         hashMap.put("studentId", cardModel.getStudentId());
         hashMap.put("school", cardModel.getSchool());
@@ -408,6 +420,34 @@ public class CloudVisionAPIActivity extends AppCompatActivity
 
         Toast.makeText(CloudVisionAPIActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
     }
+
+//    private void saveUserData(String name, String studentId, String department, String school, String description)
+//    {
+//        com.example.businesscarapp.models.IDcard cardModel = new com.example.businesscarapp.models.IDcard();
+//        cardModel.setUid("");
+//        cardModel.setName(name);
+//        cardModel.setStudentId(studentId);
+//        cardModel.setDepartment(department);
+//        cardModel.setSchool(school);
+//        cardModel.setDescription(description);
+//        cardModel.setCreatedAt(System.currentTimeMillis());
+//        cardModel.setProfileImageUrl("");
+//
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//
+//        // Get current user's uid
+//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//
+//        DatabaseReference reference = database.getReference("IDcard").child(uid);
+//        String key = reference.push().getKey(); // 이 키를 저장해둡니다.
+//
+//        Map<String, Object> cardValues = cardModel.toMap();
+//        Map<String, Object> childUpdates = new HashMap<>();
+//        childUpdates.put("/" + key, cardValues);
+//        reference.updateChildren(childUpdates);
+//
+//        Toast.makeText(CloudVisionAPIActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
+//    }
 
 
     private String[] convertResponseToString(BatchAnnotateImagesResponse response)

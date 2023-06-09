@@ -1,5 +1,6 @@
 package com.example.businesscarapp.adapters
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,10 +45,13 @@ class IDCardAdapter(private val listener: OnItemClickListener) : RecyclerView.Ad
                     idCardList.clear()
                     for (data in snapshot.children) {
                         val item = data.getValue<IDcard>()
-                        idCardList.add(item!!)
+                        if (item != null) {
+                            idCardList.add(item)
+                        }
                     }
                     notifyDataSetChanged()
                 }
+
             })
 
     }
@@ -72,6 +76,7 @@ class IDCardAdapter(private val listener: OnItemClickListener) : RecyclerView.Ad
         holder.schoolTextView.text = idCard.school
         holder.departmentTextView.text = idCard.department
         holder.descriptionTextView.text = idCard.description
+
 
         holder.itemView.setOnClickListener {
             listener.onItemClick(idCard)

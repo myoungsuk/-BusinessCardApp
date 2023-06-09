@@ -1,4 +1,4 @@
-package com.example.businesscarapp.activity;
+package com.example.businesscarapp.models;
 
 public class ItemModel {
     private int image;
