@@ -22,6 +22,9 @@
         android:theme="@style/Theme.BusinessCarApp"
         tools:targetApi="31">
         <activity
+            android:name=".activity.FriendDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AddCardPhotoActivity"
             android:exported="false" />
         <activity
@@ -49,16 +52,19 @@
             android:name=".activity.Galleryactivity"
             android:exported="true" />
         <activity
-            android:name=".activity.CardStackAdapter"
+            android:name=".adapters.CardStackAdapter"
             android:exported="true" />
         <activity
-            android:name=".activity.CardStackCallback"
+            android:name=".CardStackCallback"
             android:exported="true" />
         <activity
-            android:name=".activity.ItemModel"
+            android:name=".models.ItemModel"
             android:exported="true" />
         <activity
             android:name=".activity.IdcardFormStateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FriendDetailActivity"
             android:exported="false" />
         <activity
             android:name=".activity.IDCardDetailActivity"

@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.businesscarapp.CardStackCallback;
 import com.example.businesscarapp.R;
 
+import com.example.businesscarapp.adapters.CardStackAdapter;
+import com.example.businesscarapp.models.ItemModel;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;

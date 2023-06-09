@@ -66,5 +66,7 @@
     <string name="dialog_select_gallery">Gallery</string>
 
     <string name="image_picker_error">Something is wrong with that image. Pick a different one please.</string>
+    <string name="view_detail">Detail</string>
+    />
 
 </resources>

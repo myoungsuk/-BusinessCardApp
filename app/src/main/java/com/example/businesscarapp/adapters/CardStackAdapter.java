@@ -1,4 +1,4 @@
-package com.example.businesscarapp.activity;
+package com.example.businesscarapp.adapters;
 
 import com.example.businesscarapp.R;
 
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.businesscarapp.models.ItemModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

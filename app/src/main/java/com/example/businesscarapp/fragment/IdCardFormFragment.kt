@@ -68,6 +68,7 @@ class IdCardFormFragment : Fragment()
                 intent.putExtra("school", idCard.school)
                 intent.putExtra("department", idCard.department)
                 intent.putExtra("description", idCard.description)
+                intent.putExtra("profileImageUrl", idCard.profileImageUrl)
                 startActivity(intent)
             }
         })

@@ -117,38 +117,65 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/body1" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_call"
-                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                        android:layout_width="wrap_content"
+                        android:layout_width="10dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/backgroundGray"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:paddingStart="10dp"
-                        android:paddingTop="0dp"
-                        android:paddingEnd="20dp"
-                        android:paddingBottom="0dp"
+                        android:layout_weight="1"
                         android:text="Send Message"
                         android:textAlignment="center"
                         android:textAllCaps="false"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                        android:textColor="@color/dialogPrimaryDark"
-                        android:textSize="@dimen/button_text"
-                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                        app:cornerRadius="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="10dp"
+                        android:layout_marginBottom = "10dp"
                         app:icon="@drawable/ic_baseline_chat_24"
-                        app:iconSize="20dp"
                         app:iconTint="@color/teal_200"
                         app:iconTintMode="multiply"
-                        app:rippleColor="@color/dialogPrimary" />
-                </RelativeLayout>
+                        app:iconSize="20dp"
+                        app:rippleColor="@color/dialogPrimary"
+                        android:backgroundTint="@color/backgroundGray"
+                        android:textSize="@dimen/button_text"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        android:textColor="@color/dialogPrimaryDark"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="20dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_view_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="View Detail"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="10dp"
+
+                        app:icon="@drawable/baseline_details_24"
+                        app:iconTint="@color/dialogPrimaryDark"
+                        app:iconTintMode="multiply"
+                        app:iconSize="20dp"
+                        app:rippleColor="@color/dialogPrimary"
+                        android:backgroundTint="@color/backgroundGray"
+                        android:textSize="@dimen/button_text"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        android:textColor="@color/dialogPrimaryDark"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:cornerRadius="20dp"/>
+                </LinearLayout>
+
 
 
                 <RelativeLayout

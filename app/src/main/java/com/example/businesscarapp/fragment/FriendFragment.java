@@ -24,8 +24,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import com.example.businesscarapp.R;
+import com.example.businesscarapp.activity.FriendDetailActivity;
+import com.example.businesscarapp.activity.IDCardDetailActivity;
 import com.example.businesscarapp.activity.MessageActivity;
 import com.example.businesscarapp.models.Friend;
+import com.example.businesscarapp.models.IDcard;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -190,6 +193,7 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
 
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
                 ImageView photoImage = dialog.findViewById(R.id.iv_circle_image);
                 TextView emailText = dialog.findViewById(R.id.tv_text_email);
                 TextView nameText = dialog.findViewById(R.id.tv_text_name);
@@ -200,6 +204,8 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
 
                 MaterialButton cancleButton = dialog.findViewById(R.id.btn_cancel);
                 MaterialButton messageButton = dialog.findViewById(R.id.btn_call);
+                MaterialButton detailButton = dialog.findViewById(R.id.btn_view_detail);
+
 
                 emailText.setText(holderEmail);
                 nameText.setText(holderName);
@@ -213,26 +219,6 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
                         .apply(new RequestOptions().circleCrop())
                         .into(photoImage);
 
-//                if (getActivity() != null)
-//                {
-//                    CoolDialog coolDialog = new CoolDialog(getContext());
-//                    coolDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                    coolDialog.requestContentView();
-//                    coolDialog.setCanceledOnTouchOutside(false);
-//                    Window dialogWindow = coolDialog.getWindow();
-//                    if (dialogWindow != null)
-//                    {
-//                        dialogWindow.setLayout(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-//                    }
-//
-//                    coolDialog.setTextOnFirstTextView(holderName);
-//                    coolDialog.setTextOnSecondTextView(holderEmail);
-//                    coolDialog.setImageSize(150);
-//                    coolDialog.setImageResource(holderPhoto);
-//
-//                    coolDialog.setCallButtonIconResource(R.drawable.ic_baseline_chat_24);
-//                    coolDialog.setCallButtonIconColor(android.R.color.holo_blue_bright);
-//                    coolDialog.setCallButtonText("Send Message");
 
                 cancleButton.setOnClickListener(new View.OnClickListener()
                 {
@@ -255,23 +241,38 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyVie
                         view.getContext().startActivity(intent);
                     }
                 });
+                detailButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+
+                        String holderPhoto = friend.profileImageUrl;
+                        String holderName = friend.name;
+                        String holderEmail = friend.email;
+                        String adapterUid = friend.getUid();
+                        String holderUniv = friend.school;
+                        String holderDept = friend.department;
+                        String holderSnum = friend.studentId;
+                        String holderDesc = friend.description;
+
+                        Intent intent = new Intent(view.getContext(), FriendDetailActivity.class);
+//                        intent.putExtra("destinationUid", adapterUid);
+                        intent.putExtra("name",holderName);
+                        intent.putExtra("studentID", holderSnum);
+                        intent.putExtra("school",holderUniv );
+                        intent.putExtra("department", holderDept);
+                        intent.putExtra("description",holderDesc);
+                        intent.putExtra("profileImageUrl", holderPhoto);
+                        intent.putExtra("email", holderEmail);
+
+                        view.getContext().startActivity(intent);
+                    }
+                });
             }
         });
     }
 
-//            coolDialog.setCallButtonOnClickListener()  {
-//                val intent = Intent(context, MessageActivity::class.java)
-//                intent.putExtra("destinationUid", adapteruid)
-//                context?.startActivity(intent)
-//            }
-//            coolDialog.setCancelButtonOnClickListener() {
-//                Toast.makeText(requireContext(), "취소했습니다.", Toast.LENGTH_SHORT).show()
-//                coolDialog.dismiss()
-//            }
-//
-//            coolDialog.show()
-
-//
 
 
     @Override
