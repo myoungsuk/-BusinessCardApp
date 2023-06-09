@@ -6,11 +6,14 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 import android.app.AlertDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,7 +67,12 @@ public class NoticeDetailActivity extends AppCompatActivity
         binding = ActivityNoticeDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        // 상태바 없애기
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getWindow().getInsetsController().hide(WindowInsets.Type.statusBars());
+        } else {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
         SimpleDateFormat format = new SimpleDateFormat("MM월dd일 hh:mm:ss", Locale.getDefault()); // 포맷으로 날짜 가져오기
 
