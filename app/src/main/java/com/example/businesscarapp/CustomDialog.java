@@ -49,6 +49,9 @@ public class CustomDialog extends DialogFragment
         uid = user.getUid();
 
         EditText nameEditText = v.findViewById(R.id.name_edit);
+        EditText emailEditText = v.findViewById(R.id.email_edit);
+        EditText descriptionText = v.findViewById(R.id.desc_edit);
+
         Button cancleButton = v.findViewById(R.id.cancel_button);
         Button okayButton = v.findViewById(R.id.finish_button);
 
@@ -58,8 +61,15 @@ public class CustomDialog extends DialogFragment
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 Friend friend = snapshot.getValue(Friend.class);
+
                 String name = friend.name;
+                String email = friend.email;
+                String description = friend.description;
+
                 nameEditText.setText(name);
+                emailEditText.setText(email);
+                descriptionText.setText(description);
+
             }
 
             @Override
@@ -83,7 +93,12 @@ public class CustomDialog extends DialogFragment
             @Override
             public void onClick(View view)
             {
-                buttonClickListener.onButton2Clicked(nameEditText.getText().toString());
+                buttonClickListener.onButton2Clicked(
+                        nameEditText.getText().toString(),
+                        emailEditText.getText().toString(),
+                        descriptionText.getText().toString()
+                );
+
             }
         });
 
@@ -95,7 +110,7 @@ public class CustomDialog extends DialogFragment
     {
         void onButton1Clicked();
 
-        void onButton2Clicked(String nameEdit);
+        void onButton2Clicked(String nameEdit, String emailEdit, String descriptionEdit);
     }
 
     public void setButtonClickListener(OnButtonClickListener buttonClickListener)

@@ -8,25 +8,21 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.businesscarapp.R
-
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
-import java.security.AccessController.getContext
 
 
-class IDCardDetailActivity : AppCompatActivity() {
+class IDCardDetailActivity : AppCompatActivity()
+{
 
-    companion object {
+    companion object
+    {
         private val user = Firebase.auth.currentUser
     }
 
@@ -46,8 +42,9 @@ class IDCardDetailActivity : AppCompatActivity() {
         val description = getIntent().getStringExtra("description")
         val email = getIntent().getStringExtra("email")
         val profileImageUrl = getIntent().getStringExtra("profileImageUrl")
+        val idCardUid = getIntent().getStringExtra("uid")
 
-
+//        Log.d("idCardUid", "idCardUid: $idCardUid")
         Log.d("profileImageView", "ProfileImageUrl: $profileImageUrl")
 
         val nameTextView = findViewById<TextView>(R.id.profile_textview_name)
@@ -79,18 +76,27 @@ class IDCardDetailActivity : AppCompatActivity() {
         emailTextView.text = email
 
 
+
         DeleteIDcardButton.setOnClickListener {
-            val uid = FirebaseAuth.getInstance().uid ?: ""
-            val ref = FirebaseDatabase.getInstance().getReference("/IDcards/$uid")
-            ref.removeValue()
+
+            // Get current user's uid
+            val uid = FirebaseAuth.getInstance().currentUser!!.uid
+            val refIdCard = FirebaseDatabase.getInstance().getReference().child("IDcards").child(uid).child("$idCardUid")
+            Log.d("idCardUid", "idCardUid: $refIdCard")
+            val fullPath = refIdCard.toString() // "https://busisnesscardapp-default-rtdb.firebaseio.com/IDcards/-NXWFPRzp_Ql7finoQ-K"
+            val uidPart = fullPath.substringAfterLast("/")
+            Log.d("idCardUid", "idCardUid: $uidPart")
+
+            FirebaseDatabase.getInstance().getReference().child("IDcards").child(uid).child("$idCardUid").removeValue()
                 .addOnSuccessListener {
-                    Log.d("IDCardDetailActivity", "Successfully deleted value from database")
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
+                    Log.d("IDCardDetailActivity", "Successfully deleted ID card from database")
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
+                    finish()
                 }
                 .addOnFailureListener {
-                    Log.d("IDCardDetailActivity", "Failed to delete value from database")
+                    Log.d("IDCardDetailActivity", "Failed to delete ID card from database")
                 }
         }
 
@@ -99,8 +105,8 @@ class IDCardDetailActivity : AppCompatActivity() {
             val intent = Intent(this, AddCardPhotoActivity::class.java)
             startActivity(intent)
 
-            }
         }
-
-
     }
+
+
+}

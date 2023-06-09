@@ -98,7 +98,7 @@
         <TextView
             android:id="@+id/profile_textview_desc"
             android:layout_width="300dp"
-            android:layout_height="105dp"
+            android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Description"
             android:textColor="#505050"
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="105dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/button_background"
@@ -123,7 +123,6 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_textview_desc" />
 
@@ -132,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="60dp"
+            android:layout_marginTop = "110dp"
             android:text="Press the button and share your student ID card!"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -140,7 +139,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startText" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_textview_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

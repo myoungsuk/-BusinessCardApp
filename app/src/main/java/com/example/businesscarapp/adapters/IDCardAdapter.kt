@@ -1,14 +1,18 @@
 package com.example.businesscarapp.adapters
 
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.businesscarapp.R
+import com.example.businesscarapp.activity.IDCardDetailActivity
 import com.example.businesscarapp.adapters.ArticleAdapter.Companion.diffUtil
 import com.example.businesscarapp.databinding.ItemIdcardBinding
 import com.example.businesscarapp.models.ArticleModel
@@ -71,6 +75,12 @@ class IDCardAdapter(private val listener: OnItemClickListener) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: IDCardViewHolder, position: Int) {
         val idCard = idCardList[position]
+        val idCardUid = idCardList[position].uid
+//        val intent = Intent(holder.itemView.context, IDCardDetailActivity::class.java)
+//        intent.putExtra("uid",idCardUid )
+
+
+
         holder.nameTextView.text = idCard.name
         holder.studentIDTextView.text = idCard.studentId
         holder.schoolTextView.text = idCard.school

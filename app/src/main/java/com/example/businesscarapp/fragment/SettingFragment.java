@@ -71,11 +71,11 @@ public class SettingFragment extends Fragment {
         ImageView profileEdit = v.findViewById(R.id.photoedit);
         TextView nameText = v.findViewById(R.id.name);
         TextView emailText = v.findViewById(R.id.email);
+        TextView descriptionText = v.findViewById(R.id.desc);
+
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
-
         TextView GalleryButton = v.findViewById(R.id.GalleryButton);
-
         TextView idcardListButton = v.findViewById(R.id.idcardListButton);
 
 
@@ -87,9 +87,11 @@ public class SettingFragment extends Fragment {
 
                 String email = friend.email;
                 String name = friend.name;
+                String description = friend.description;
 
                 emailText.setText(email);
                 nameText.setText(name);
+                descriptionText.setText(description);
 
                 if (friend.profileImageUrl.equals("")) {
                     // Handle empty profile image URL
@@ -119,13 +121,22 @@ public class SettingFragment extends Fragment {
                     }
 
                     @Override
-                    public void onButton2Clicked(String nameEdit) {
-                        nameText.setText(nameEdit);
-                        mDatabase.child("Users").child(uid).child("name").setValue(nameEdit);
+                    public void onButton2Clicked(String nameEdit, String emailEdit, String desc_edit) {
 
-                        Toast.makeText(requireContext(), "이름이 변경되었습니다", Toast.LENGTH_SHORT).show();
+                        nameText.setText(nameEdit);
+                        emailText.setText(emailEdit);
+                        descriptionText.setText(desc_edit);
+
+                        mDatabase.child("Users").child(uid).child("name").setValue(nameEdit);
+                        mDatabase.child("Users").child(uid).child("email").setValue(emailEdit);
+                        mDatabase.child("Users").child(uid).child("description").setValue(desc_edit);
+
+                        Toast.makeText(requireContext(), "정보가 변경되었습니다.", Toast.LENGTH_SHORT).show();
 
                         nameText.clearFocus();
+                        emailText.clearFocus();
+                        descriptionText.clearFocus();
+
                         dialog.dismiss();
                     }
                 });

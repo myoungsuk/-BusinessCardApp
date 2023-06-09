@@ -2,6 +2,7 @@ package com.example.businesscarapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.businesscarapp.DBkey.DB_IDCARDS
 import com.example.businesscarapp.R
+import com.example.businesscarapp.activity.AddCardPhotoActivity
 import com.example.businesscarapp.activity.IDCardDetailActivity
 import com.example.businesscarapp.activity.NoticeDetailActivity
 import com.example.businesscarapp.adapters.ArticleAdapter
@@ -62,13 +64,20 @@ class IdCardFormFragment : Fragment()
 
             override fun onItemClick(idCard: IDcard)
             {
+
                 val intent = Intent(requireContext(), IDCardDetailActivity::class.java)
+                intent.putExtra("uid", idCard.uid)
+                val intent2 = Intent(requireContext(), AddCardPhotoActivity::class.java)
+                intent2.putExtra("uid", idCard.uid)
+                val id = idCard.uid
                 intent.putExtra("name",idCard.name)
                 intent.putExtra("studentID", idCard.studentId)
                 intent.putExtra("school", idCard.school)
                 intent.putExtra("department", idCard.department)
                 intent.putExtra("description", idCard.description)
                 intent.putExtra("profileImageUrl", idCard.profileImageUrl)
+
+//                Log.d("idCardUid", "idCardUid: $id")
                 startActivity(intent)
             }
         })

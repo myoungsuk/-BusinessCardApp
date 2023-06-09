@@ -1,5 +1,6 @@
 package com.example.businesscarapp.activity
 
+import android.content.Intent
 import com.example.businesscarapp.models.IDcard
 import android.os.Bundle
 import android.util.Log
@@ -72,6 +73,9 @@ class FriendDetailActivity : AppCompatActivity()
 
 
             saveUserData(FriendName, FriendStudentID, FriendSchool, FriendDepartment, FriendDescription, createdAt =System.currentTimeMillis() , ProfileImageUrl = FriendProfileImageUrl)
+
+
+
         }
 
 
@@ -110,12 +114,17 @@ class FriendDetailActivity : AppCompatActivity()
         hashMap["department"] = department1
         hashMap["description"] = description1
         hashMap["createdAt"] = createdAt
-        hashMap["id"] = reference.key.toString()
+        hashMap["uid"] = reference.key.toString()
         hashMap["profileImageUrl"] = ProfileImageUrl
 
+        val id = reference.key.toString()
+        Log.d("idCardUid", "idCardUid: $id")
         reference.setValue(hashMap) // save data under the uid of current user with unique id
         Toast.makeText(this, "ID card 추가완료", Toast.LENGTH_SHORT)
             .show()
+
+
+
     }
 
 }

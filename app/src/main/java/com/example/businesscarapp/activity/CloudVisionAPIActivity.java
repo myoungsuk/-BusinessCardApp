@@ -408,7 +408,7 @@ public class CloudVisionAPIActivity extends AppCompatActivity
         // Get current user's uid
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-       DatabaseReference reference = database.getReference("IDcard").child(uid).push();
+        DatabaseReference reference = database.getReference("IDcard").child(uid).push();
 
         HashMap<String, Object> hashMap = new HashMap<>();
 //        DatabaseReference reference = database.getReference("IDcard").child(uid);
@@ -425,6 +425,8 @@ public class CloudVisionAPIActivity extends AppCompatActivity
         hashMap.put("department", cardModel.getDepartment());
         hashMap.put("description", cardModel.getDescription());
         hashMap.put("createdAt", cardModel.getCreatedAt());
+        hashMap.put("uid", reference.getKey());
+
         reference.setValue(hashMap);  // save data under the uid of current user with unique id
 
         Toast.makeText(CloudVisionAPIActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
