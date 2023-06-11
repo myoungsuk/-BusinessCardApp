@@ -24,6 +24,8 @@ import com.example.businesscarapp.activity.AddPhotoActivity;
 import com.example.businesscarapp.activity.IdcardFormStateActivity;
 import com.example.businesscarapp.activity.LoginActivity;
 import com.example.businesscarapp.activity.Galleryactivity;
+import com.example.businesscarapp.activity.CardListActivity;
+import com.example.businesscarapp.activity.AddCardActivity;
 import com.example.businesscarapp.models.Friend;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -76,7 +78,9 @@ public class SettingFragment extends Fragment {
         TextView nameEditButton = v.findViewById(R.id.nameEditText);
         TextView signoutButton = v.findViewById(R.id.signoutButton);
         TextView GalleryButton = v.findViewById(R.id.GalleryButton);
+        TextView addidcardButton = v.findViewById(R.id.addidcardButton);
         TextView idcardListButton = v.findViewById(R.id.idcardListButton);
+
 
 
         // Display profile data
@@ -162,11 +166,22 @@ public class SettingFragment extends Fragment {
         {
             @Override
             public void onClick(View v) {
+                // Request activity transition to GalleryActivity
                 Intent intent = new Intent(getActivity(), IdcardFormStateActivity.class);
                 startActivity(intent);
             }
         });
 
+        //명함 추가하기 들어가기
+        addidcardButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                // Request activity transition to GalleryActivity
+                Intent intent = new Intent(getActivity(), AddCardActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //로그아웃하기
         signoutButton.setOnClickListener(new View.OnClickListener()
